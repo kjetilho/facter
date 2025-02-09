@@ -158,6 +158,13 @@ module Facter
 
             @fact_list[:primary_interface] = primary_interface
           end
+
+          def retrieve_primary6_interface
+            primary_helper = Facter::Util::Resolvers::Networking::PrimaryInterface
+            primary6_interface = primary_helper.read_from_ip6_route
+
+            @fact_list[:primary6_interface] = primary6_interface
+          end
         end
       end
     end
